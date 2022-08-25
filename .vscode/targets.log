@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Sun Aug 21 15:28:16 2022
+# Make data base, printed on Thu Aug 25 14:44:56 2022
 
 # Variables
 
@@ -38,13 +38,9 @@ MAKEFILE_LIST :=
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-MallocSpaceEfficient = 1
-# environment
 VSCODE_CWD = /
 # environment
 PATH = /Library/Frameworks/Python.framework/Versions/3.9/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion Tech Preview.app/Contents/Public:/Library/Apple/usr/bin:/usr/local/smlnj/bin
-# environment
-LaunchInstanceID = 516C44AD-AA7C-4AEE-98B8-63F03EC7AA3E
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
@@ -70,7 +66,7 @@ VSCODE_CODE_CACHE_PATH = /Users/nasseef/Library/Application Support/Code/CachedD
 # environment
 LOGNAME = nasseef
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -82,7 +78,7 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-SHLVL = 3
+SHLVL = 2
 # default
 MAKE_VERSION := 3.81
 # environment
@@ -110,7 +106,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.26840544.26840550.EC9D1392-E3DB-46BA-BDCC-924E0ED4F9ED
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.26840544.26840550
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -125,9 +121,6 @@ MAKEFILES :=
 <F = $(notdir $<)
 # environment
 LC_ALL = C
- 
-make: *** No rule to make target `all'.  Stop.
-
 # automatic
 ^F = $(notdir $^)
 # default
@@ -139,9 +132,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 9015
+VSCODE_PID = 28368
 # variable set hash-table stats:
-# Load=63/1024=6%, Rehash=0, Collisions=1/84=1%
+# Load=61/1024=6%, Rehash=0, Collisions=1/82=1%
 
 # Pattern-specific Variable Values
 
@@ -149,9 +142,9 @@ VSCODE_PID = 9015
 
 # Directories
 
-# . (device 16777232, inode 26673368): 6 files, no impossibilities.
+# . (device 16777232, inode 26673368): 9 files, no impossibilities.
 
-# 6 files, no impossibilities in 1 directories.
+# 9 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -221,8 +214,11 @@ GNUmakefile:
 # # of strings in strcache: 0
 # # of strcache buffers: 0
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
+ 
+make: *** No rule to make target `all'.  Stop.
+
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Sun Aug 21 15:28:16 2022
+# Finished Make data base on Thu Aug 25 14:44:56 2022
 
  
