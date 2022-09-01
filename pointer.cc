@@ -34,7 +34,7 @@ void print(Node *head);
 
 int main(int argc, char const *argv[]) {
     
-    vector<string> v = {"Bob"};
+    //vector<string> v = {"Bob"};
     ///vector<string>::iterator it = v.begin();
     // auto it = v.begin();
     Node * head = new Node(10, nullptr);
@@ -46,7 +46,7 @@ int main(int argc, char const *argv[]) {
    
     print(head);
 
-    cout << head->getData() << endl;
+    //cout << head->getData() << endl;
     // int numbers[] = {10, 20, 30, 40, 50}; //static
     // int *p = numbers;
     // int *p2 = &numbers[3];
@@ -60,7 +60,7 @@ int main(int argc, char const *argv[]) {
     // c[1] = 'A';
     // p = (int *) c;
     // cout << *p << endl;
-
+    cout << endl;
     return 0;
 }  /// main
 
@@ -69,10 +69,20 @@ void insert(Node *&head, int data){
     head = temp;
 }
 
+// void print(Node *head){
+//     while(head != nullptr){
+//         cout << head->getData() << " ";
+//         head = head->getNext();
+//     }
+//     cout << endl;
+// }
+
 void print(Node *head){
-    while(head != nullptr){
+    if (head != nullptr)
+    {
+    
+        print(head->getNext());
         cout << head->getData() << " ";
-        head = head->getNext();
     }
-    cout << endl;
 }
+
