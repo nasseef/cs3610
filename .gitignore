@@ -1,5 +1,8 @@
+binsearch.cc
+square-root.cc
 *.vscode
 *.dSYM
+test.*
 # Prerequisites
 *.d
 

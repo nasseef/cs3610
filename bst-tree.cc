@@ -23,17 +23,26 @@ struct BSTNode{
 
 class BST{
 public:
-    BST(){root = nullptr;}
+    
+    BST(BSTNode *newRoot = nullptr){
+        root = newRoot;
+    }
     void print(){printDepth(root, 0);};
     void insert(int newData){treeInsert(root, newData);};
     void clear(){treeClear(root);}
+    BST copy(){
+        return BST(treeCopy(root));
+    }
+    
 private:
 
     BSTNode *root;
     void preorderPrint(BSTNode * root);
     void treeInsert(BSTNode *&root, int newData);
     void printDepth(BSTNode * root, int depth);
-    void treeClear(BSTNode *& root)
+    void treeClear(BSTNode *& root);
+    BSTNode* treeCopy(BSTNode *root);
+    
 
 };
 
@@ -51,7 +60,10 @@ int main(int argc, char const *argv[]) {
     tree.insert(37);
     tree.print();
     cout << endl;
+    
+    BST tree2 = tree.copy();
     tree.clear();
+    tree2.print();
     return 0;
 } /// main
 
@@ -100,3 +112,17 @@ void BST::treeClear(BSTNode *& root)
         root = nullptr;
     }
 }
+
+BSTNode* BST::treeCopy(BSTNode *root)
+{
+		if (root == nullptr){
+        return nullptr;
+		}
+    	
+    	BSTNode *leftPtr;
+    	BSTNode *rightPtr;
+    	leftPtr = treeCopy(root->left);
+    	rightPtr = treeCopy(root->right);
+     	return new BSTNode(root->data, 			            leftPtr, rightPtr);
+}
+
