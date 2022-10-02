@@ -5,13 +5,14 @@
  *  @brief: Add Description
  */
 
-#include <iostream>
-#include <iomanip>
 #include <cstdlib>
+#include <iomanip>
+#include <iostream>
 using namespace std;
 
-struct BSTNode{
-    BSTNode(int newData, BSTNode *leftptr = nullptr, BSTNode *rightptr = nullptr){
+struct BSTNode {
+    BSTNode(int newData, BSTNode *leftptr = nullptr,
+            BSTNode *rightptr = nullptr) {
         data = newData;
         left = leftptr;
         right = rightptr;
@@ -21,33 +22,24 @@ struct BSTNode{
     BSTNode *right;
 };
 
-class BST{
-public:
-    
-    BST(BSTNode *newRoot = nullptr){
-        root = newRoot;
-    }
-    void print(){printDepth(root, 0);};
-    void insert(int newData){treeInsert(root, newData);};
-    void clear(){treeClear(root);}
-    BST copy(){
-        return BST(treeCopy(root));
-    }
-    
-private:
+class BST {
+   public:
+    BST(BSTNode *newRoot = nullptr) { root = newRoot; }
+    void print() { printDepth(root, 0); };
+    void insert(int newData) { treeInsert(root, newData); };
+    void clear() { treeClear(root); }
+    BST copy() { return BST(treeCopy(root)); }
 
+   private:
     BSTNode *root;
-    void preorderPrint(BSTNode * root);
+    void preorderPrint(BSTNode *root);
     void treeInsert(BSTNode *&root, int newData);
-    void printDepth(BSTNode * root, int depth);
-    void treeClear(BSTNode *& root);
-    BSTNode* treeCopy(BSTNode *root);
-    
-
+    void printDepth(BSTNode *root, int depth);
+    void treeClear(BSTNode *&root);
+    BSTNode *treeCopy(BSTNode *root);
 };
 
 int main(int argc, char const *argv[]) {
-
     BST tree;
     tree.insert(30);
     tree.insert(10);
@@ -58,54 +50,73 @@ int main(int argc, char const *argv[]) {
     tree.insert(50);
     tree.insert(15);
     tree.insert(37);
+    
     tree.print();
     cout << endl;
-    
     BST tree2 = tree.copy();
     tree.clear();
     tree2.print();
     return 0;
-} /// main
+}  /// main
 
-void BST::preorderPrint(BSTNode * root)
-{
-    if (root != nullptr)
-    {
+void BST::preorderPrint(BSTNode *root) {
+    if (root != nullptr) {
         preorderPrint(root->left);
         preorderPrint(root->right);
         cout << root->data << " ";
     }
 }
 
-void BST::treeInsert(BSTNode *&root, int newData)
-{
-  	if (root == nullptr){
-    		root = new BSTNode(newData, nullptr, nullptr);
-		}
-   	else  if (newData < root ->data){
-          treeInsert(root->left, newData);
-		}
-    	else if (newData > root->data){
-          treeInsert (root->right, newData);
-		}
-    // else the element is in the tree
-} 
+// void BST::treeInsert(BSTNode *&root, int newData) {
+//     if (root == nullptr) {
+//         root = new BSTNode(newData, nullptr, nullptr);
+//     } else if (newData < root->data) {
+//         treeInsert(root->left, newData);
+//     } else if (newData > root->data) {
+//         treeInsert(root->right, newData);
+//     }
+//     // else the element is in the tree
+// }
 
-void BST::printDepth(BSTNode* root, int depth) 
-{ 
-    if (root != nullptr) 
-    { 
-        printDepth(root->right, depth+1); 
-        cout << setw(4*depth) << "" // Indent 4*depth
-             << root->data << endl; 
-        printDepth(root->left, depth+1); 
-    } 
-} 
+//Non-recursive version
+void BST::treeInsert(BSTNode *&root, int newData) {
+    bool done = false;
+    BSTNode *cursor = root;
+    if (root == nullptr) {
+        root = new BSTNode(newData);
+        return;
+    }
+    while (!done) {
+        if (newData < cursor->data) {
+            if (cursor->left == nullptr) {
+                cursor->left = new BSTNode(newData);
+                done = true;
+            } else{
+                cursor = cursor->left;
+            }
+        } else if (newData > cursor->data) {
+            if (cursor->right == nullptr) {
+                cursor->right = new BSTNode(newData);
+                done = true;
+            } else{
+                cursor = cursor->right;
+            }
+        } else
+            done = true;
+    }
+}
 
-void BST::treeClear(BSTNode *& root)
-{
-    if (root != nullptr)
-    {
+void BST::printDepth(BSTNode *root, int depth) {
+    if (root != nullptr) {
+        printDepth(root->right, depth + 1);
+        cout << setw(4 * depth) << ""  // Indent 4*depth
+             << root->data << endl;
+        printDepth(root->left, depth + 1);
+    }
+}
+
+void BST::treeClear(BSTNode *&root) {
+    if (root != nullptr) {
         treeClear(root->left);
         treeClear(root->right);
         delete root;
@@ -113,16 +124,14 @@ void BST::treeClear(BSTNode *& root)
     }
 }
 
-BSTNode* BST::treeCopy(BSTNode *root)
-{
-		if (root == nullptr){
+BSTNode *BST::treeCopy(BSTNode *root) {
+    if (root == nullptr) {
         return nullptr;
-		}
-    	
-    	BSTNode *leftPtr;
-    	BSTNode *rightPtr;
-    	leftPtr = treeCopy(root->left);
-    	rightPtr = treeCopy(root->right);
-     	return new BSTNode(root->data, 			            leftPtr, rightPtr);
-}
+    }
 
+    BSTNode *leftPtr;
+    BSTNode *rightPtr;
+    leftPtr = treeCopy(root->left);
+    rightPtr = treeCopy(root->right);
+    return new BSTNode(root->data, leftPtr, rightPtr);
+}
