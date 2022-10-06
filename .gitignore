@@ -3,6 +3,7 @@ square-root.cc
 *.vscode
 *.dSYM
 test.*
+*-bak.*
 # Prerequisites
 *.d
 
