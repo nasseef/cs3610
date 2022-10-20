@@ -1,0 +1,18 @@
+100 Has Major Credit Card?
+50 Has a loan?
+30 Salary over $10,000?
+20 Reject
+40 $200
+70 Good credit with loan?
+60 Reject
+75 $300.00
+150 Good credit with card?
+120 Reject
+200 Owns home?
+170 Salary over $15,000?
+160 $200.00
+175 $500.00
+300 Salary over $20,000
+250 $600.00
+350 $1,000.00
+
