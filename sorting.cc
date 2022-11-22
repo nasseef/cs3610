@@ -14,6 +14,8 @@
 using namespace std;
 /// Constants and function prototypes
 void print(vector<int> data);
+
+//selection sort
 void selectSort(vector<int> &data);
 
 // heap sort functions
