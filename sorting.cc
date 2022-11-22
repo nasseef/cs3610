@@ -2,7 +2,7 @@
  *   @file: sorting.cc
  * @author: Nasseef Abukamail
  *   @date: November 21, 2022
- *  @brief: Several sorting functions
+ *  @brief: Several sorting functions 
  */
 
 #include <chrono>
@@ -13,12 +13,13 @@
 
 using namespace std;
 /// Constants and function prototypes
+//display the elements of the vector
 void print(vector<int> data);
 
 //selection sort
 void selectSort(vector<int> &data);
 
-// heap sort functions
+// heap sort functions 
 void heapSort(vector<int> &data);
 void buildHeap(vector<int> &data);
 void percolateDown(vector<int> &data, int size, int parentIndex);
@@ -51,13 +52,15 @@ int main(int argc, char const *argv[]) {
     }
 
     vector<int> data = original;
-     //print(data);
+    //print(data);
 
     auto begin = chrono::high_resolution_clock::now();
     selectSort(data);
     auto end = chrono::high_resolution_clock::now();
     auto elapsed = chrono::duration_cast<chrono::nanoseconds>(end - begin);
     cout << "Selection sort: " << elapsed.count() / 1.0e9 << " seconds" << endl;
+
+    //print(data);
     
     data = original;
     begin = chrono::high_resolution_clock::now();
@@ -66,6 +69,7 @@ int main(int argc, char const *argv[]) {
     elapsed = chrono::duration_cast<chrono::nanoseconds>(end - begin);
     cout << "Heap Sort: " << elapsed.count() / 1.0e9 << " seconds" << endl;
 
+    
     data = original;
     // print(data);
     begin = chrono::high_resolution_clock::now();
@@ -74,6 +78,7 @@ int main(int argc, char const *argv[]) {
     elapsed = chrono::duration_cast<chrono::nanoseconds>(end - begin);
     cout << "Merge Sort: " << elapsed.count() / 1.0e9 << " seconds" << endl;
 
+    return 0;
     data = original;
     //print(data);
     begin = chrono::high_resolution_clock::now();
