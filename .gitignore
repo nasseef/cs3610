@@ -2,7 +2,7 @@ binsearch.cc
 square-root.cc
 *.vscode
 *.dSYM
-test.*
+test*.*
 *-bak.*
 # Prerequisites
 *.d
